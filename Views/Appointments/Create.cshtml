@@ -54,7 +54,7 @@
                     <input asp-for="AcceptTerms" class="form-checkbox" />
                     قوانین و حفظ حریم خصوصی را می‌پذیرم.
                 </label>
-                <span asp-validation-for="AcceptTerms" class="text-xs text-danger"></span>
+                @* <span asp-validation-for="AcceptTerms" class="text-xs text-danger"></span> *@
                 <div class="flex gap-2">
                     <button type="submit" class="btn btn-primary">ثبت درخواست</button>
                     <a asp-action="Index" class="btn btn-outline-primary">بازگشت</a>

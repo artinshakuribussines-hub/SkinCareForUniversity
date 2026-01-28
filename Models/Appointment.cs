@@ -38,5 +38,5 @@ public class Appointment
 
     [NotMapped]
     [Range(typeof(bool), "true", "true", ErrorMessage = "پذیرش قوانین الزامی است.")]
-    public bool AcceptTerms { get; set; }
+    public bool? AcceptTerms { get; set; }
 }

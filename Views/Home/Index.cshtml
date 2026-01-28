@@ -97,26 +97,64 @@
     <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
         <div class="panel space-y-5">
             <div class="flex items-center justify-between">
-                <h2 class="text-xl font-bold text-black dark:text-white">نوبت‌دهی آنلاین</h2>
-                <span class="text-xs text-primary">ثبت سریع و یکپارچه با پرونده سلامت</span>
+                <h2 class="text-xl font-bold text-black dark:text-white">فرم نوبت‌دهی</h2>
+                <span class="text-xs text-primary">ظرفیت محدود روزانه</span>
             </div>
-            <p class="text-sm text-gray-500">
-                برای ثبت نوبت لطفاً وارد صفحه نوبت‌دهی شوید تا اطلاعات شما در پایگاه داده کلینیک ذخیره شود و پیامک تأیید دریافت کنید.
-            </p>
-            <div class="flex flex-wrap gap-3">
-                <a asp-controller="Appointments" asp-action="Create" class="btn btn-primary">ثبت نوبت جدید</a>
-                <a asp-controller="Appointments" asp-action="Index" class="btn btn-outline-primary">مشاهده نوبت‌ها</a>
-            </div>
-            <div class="rounded-lg border border-dashed border-gray-200 p-4 text-sm text-gray-500 dark:border-gray-700">
-                اطلاعات نوبت‌ها به صورت امن در SQL Server ذخیره می‌شود و امکان ویرایش یا لغو توسط کارشناسان فراهم است.
-            </div>
+            <form class="grid gap-4 md:grid-cols-2">
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">نام و نام خانوادگی</label>
+                    <input type="text" class="form-input w-full" placeholder="مثلاً سارا محمدی" />
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">شماره دانشجویی</label>
+                    <input type="text" class="form-input w-full" placeholder="مثلاً ۹۹۱۲۳۴۵۶" />
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">شماره تماس</label>
+                    <input type="tel" class="form-input w-full" placeholder="۰۹۱۲۱۲۳۴۵۶۷" />
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">خدمت مورد نظر</label>
+                    <select class="form-select w-full">
+                        <option>فیشیال دانشجویی</option>
+                        <option>درمان آکنه</option>
+                        <option>درمان لک</option>
+                        <option>مشاوره پوست</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">تاریخ</label>
+                    <input type="date" class="form-input w-full" />
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">ساعت پیشنهادی</label>
+                    <select class="form-select w-full">
+                        <option>۰۹:۰۰ تا ۱۰:۰۰</option>
+                        <option>۱۰:۳۰ تا ۱۱:۳۰</option>
+                        <option>۱۲:۰۰ تا ۱۳:۰۰</option>
+                        <option>۱۴:۰۰ تا ۱۵:۰۰</option>
+                        <option>۱۶:۰۰ تا ۱۷:۰۰</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="mb-1 block text-sm font-semibold text-gray-600">توضیحات کوتاه</label>
+                    <textarea class="form-textarea w-full" rows="3" placeholder="اگر حساسیت دارویی یا سابقه درمان دارید بنویسید."></textarea>
+                </div>
+                <div class="md:col-span-2 flex flex-wrap items-center justify-between gap-3">
+                    <label class="flex items-center gap-2 text-sm text-gray-500">
+                        <input type="checkbox" class="form-checkbox" />
+                        قوانین و حفظ حریم خصوصی را می‌پذیرم.
+                    </label>
+                    <button type="submit" class="btn btn-primary">ثبت درخواست نوبت</button>
+                </div>
+            </form>
         </div>
         <div class="panel space-y-4">
             <h2 class="text-xl font-bold text-black dark:text-white">مسیر دریافت خدمات</h2>
             <ol class="space-y-4 text-sm text-gray-500">
                 <li class="flex gap-3">
                     <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white">1</span>
-                    ثبت درخواست در صفحه نوبت‌دهی و انتخاب خدمت
+                    تکمیل فرم و انتخاب خدمت مورد نظر
                 </li>
                 <li class="flex gap-3">
                     <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white">2</span>

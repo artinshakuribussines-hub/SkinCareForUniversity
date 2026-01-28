@@ -1,0 +1,62 @@
+@model SkinCareForUniversity.Models.Appointment
+
+<section class="space-y-6 p-6 md:p-10">
+    <div class="panel">
+        <h1 class="text-2xl font-bold text-black dark:text-white">ویرایش نوبت</h1>
+        <p class="text-sm text-gray-500">اطلاعات نوبت را به‌روز کنید.</p>
+    </div>
+
+    <div class="panel">
+        <form asp-action="Edit" class="grid gap-4 md:grid-cols-2">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <label asp-for="FullName" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <input asp-for="FullName" class="form-input w-full" />
+                <span asp-validation-for="FullName" class="text-xs text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="StudentId" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <input asp-for="StudentId" class="form-input w-full" />
+                <span asp-validation-for="StudentId" class="text-xs text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="PhoneNumber" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <input asp-for="PhoneNumber" class="form-input w-full" />
+                <span asp-validation-for="PhoneNumber" class="text-xs text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ServiceType" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <select asp-for="ServiceType" class="form-select w-full">
+                    <option>فیشیال دانشجویی</option>
+                    <option>درمان آکنه</option>
+                    <option>درمان لک</option>
+                    <option>مشاوره پوست</option>
+                </select>
+                <span asp-validation-for="ServiceType" class="text-xs text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="AppointmentDate" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <input asp-for="AppointmentDate" class="form-input w-full" type="date" />
+                <span asp-validation-for="AppointmentDate" class="text-xs text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="AppointmentTime" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <input asp-for="AppointmentTime" class="form-input w-full" type="time" />
+                <span asp-validation-for="AppointmentTime" class="text-xs text-danger"></span>
+            </div>
+            <div class="md:col-span-2">
+                <label asp-for="Notes" class="mb-1 block text-sm font-semibold text-gray-600"></label>
+                <textarea asp-for="Notes" class="form-textarea w-full" rows="3"></textarea>
+                <span asp-validation-for="Notes" class="text-xs text-danger"></span>
+            </div>
+            <div class="md:col-span-2 flex flex-wrap items-center justify-end gap-2">
+                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                <a asp-action="Index" class="btn btn-outline-primary">بازگشت</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

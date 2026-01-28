@@ -1,0 +1,23 @@
+@model SkinCareForUniversity.Models.Appointment
+
+<section class="space-y-6 p-6 md:p-10">
+    <div class="panel">
+        <h1 class="text-2xl font-bold text-black dark:text-white">حذف نوبت</h1>
+        <p class="text-sm text-gray-500">آیا از حذف این نوبت مطمئن هستید؟</p>
+    </div>
+
+    <div class="panel space-y-4 text-sm text-gray-600 dark:text-gray-300">
+        <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+            <p class="font-semibold text-black dark:text-white">@Model.FullName</p>
+            <p class="text-xs text-gray-500">@Model.ServiceType</p>
+            <p class="text-xs text-gray-500">@Model.AppointmentDate.ToString("yyyy/MM/dd") - @Model.AppointmentTime.ToString(@"hh\:mm")</p>
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="flex flex-wrap gap-2">
+                <button type="submit" class="btn btn-danger">حذف نهایی</button>
+                <a asp-action="Index" class="btn btn-outline-primary">بازگشت</a>
+            </div>
+        </form>
+    </div>
+</section>

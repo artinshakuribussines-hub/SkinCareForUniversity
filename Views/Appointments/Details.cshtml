@@ -1,0 +1,45 @@
+@model SkinCareForUniversity.Models.Appointment
+
+<section class="space-y-6 p-6 md:p-10">
+    <div class="panel">
+        <h1 class="text-2xl font-bold text-black dark:text-white">جزئیات نوبت</h1>
+        <p class="text-sm text-gray-500">اطلاعات کامل نوبت ثبت‌شده</p>
+    </div>
+
+    <div class="panel space-y-4 text-sm text-gray-600 dark:text-gray-300">
+        <div class="grid gap-4 md:grid-cols-2">
+            <div>
+                <p class="text-xs text-gray-400">نام و نام خانوادگی</p>
+                <p class="font-semibold text-black dark:text-white">@Model.FullName</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400">شماره دانشجویی</p>
+                <p class="font-semibold text-black dark:text-white">@Model.StudentId</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400">شماره تماس</p>
+                <p class="font-semibold text-black dark:text-white">@Model.PhoneNumber</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400">خدمت انتخابی</p>
+                <p class="font-semibold text-black dark:text-white">@Model.ServiceType</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400">تاریخ نوبت</p>
+                <p class="font-semibold text-black dark:text-white">@Model.AppointmentDate.ToString("yyyy/MM/dd")</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400">ساعت نوبت</p>
+                <p class="font-semibold text-black dark:text-white">@Model.AppointmentTime.ToString(@"hh\:mm")</p>
+            </div>
+        </div>
+        <div>
+            <p class="text-xs text-gray-400">توضیحات</p>
+            <p class="font-semibold text-black dark:text-white">@Model.Notes</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">ویرایش</a>
+            <a asp-action="Index" class="btn btn-outline-primary">بازگشت</a>
+        </div>
+    </div>
+</section>

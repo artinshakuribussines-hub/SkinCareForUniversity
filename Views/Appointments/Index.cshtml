@@ -1,0 +1,47 @@
+@model IEnumerable<SkinCareForUniversity.Models.Appointment>
+
+<section class="space-y-6 p-6 md:p-10">
+    <div class="panel flex flex-wrap items-center justify-between gap-4">
+        <div>
+            <h1 class="text-2xl font-bold text-black dark:text-white">نوبت‌های ثبت‌شده</h1>
+            <p class="text-sm text-gray-500">مدیریت و پیگیری نوبت‌های کلینیک پوستی دانشگاه</p>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">ثبت نوبت جدید</a>
+    </div>
+
+    <div class="panel overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-right text-sm text-gray-600 dark:text-gray-300">
+                <thead class="bg-gray-50 text-xs uppercase text-gray-500 dark:bg-[#1b2e4b]/40">
+                    <tr>
+                        <th class="px-4 py-3">نام</th>
+                        <th class="px-4 py-3">شماره دانشجویی</th>
+                        <th class="px-4 py-3">خدمت</th>
+                        <th class="px-4 py-3">تاریخ</th>
+                        <th class="px-4 py-3">ساعت</th>
+                        <th class="px-4 py-3">اقدامات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="border-b border-gray-100 dark:border-gray-700">
+                            <td class="px-4 py-3 font-semibold text-black dark:text-white">@item.FullName</td>
+                            <td class="px-4 py-3">@item.StudentId</td>
+                            <td class="px-4 py-3">@item.ServiceType</td>
+                            <td class="px-4 py-3">@item.AppointmentDate.ToString("yyyy/MM/dd")</td>
+                            <td class="px-4 py-3">@item.AppointmentTime.ToString(@"hh\:mm")</td>
+                            <td class="px-4 py-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">جزئیات</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">ویرایش</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">حذف</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
